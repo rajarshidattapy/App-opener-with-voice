@@ -1,0 +1,117 @@
+import os 
+import speech_recognition as sr 
+
+def takeCommand():
+    #It takes microphone input from the user and returns string output
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print("Recognizing...")    
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
+
+    except Exception as e:
+        print(e)    
+        print("Say that again please...")  
+        return "None"
+    return query
+
+while True:
+    # take input
+    print("CHAT WITH ME WITH YOUR REQUIREMENTS : ", end='')
+    p = takeCommand().lower()
+    
+  
+    if ("DONT" in p) or ("DON'T" in p) or ("NOT" in p):
+        print("Type Again")
+        print(".")
+        print(".")
+        continue
+  
+    # assignements for different applications in the menu
+    elif ("google" in p) or ("search" in p) or ("chrome" in p):
+        print("Opening")
+        print("GOOGLE CHROME")
+        print(".")
+        print(".")
+        os.system("start chrome")
+  
+    elif ("microsoft edge" in p) or ("msedge" in p) or ("edge" in p):
+        print("Opening")
+        print("MICROSOFT EDGE")
+        print(".")
+        print(".")
+        os.system("start msedge")
+  
+    elif ("note" in p) or ("notes" in p) or ("notepad" in p) or ("editor" in p):
+        print("Opening")
+        print("NOTEPAD")
+        print(".")
+        print(".")
+        os.system("Notepad")
+  
+    elif ("vlcplayer" in p) or ("player" in p) or ("video player" in p):
+        print("Opening")
+        print("VLC PLAYER")
+        print(".")
+        print(".")
+        os.system("start VLC")
+  
+    elif ("ILLUSTRATOR" in p) or ("AI" in p):
+        print("Opening")
+        print("ADOBE ILLUSTRATOR")
+        print(".")
+        print(".")
+        os.system("illustrator")
+  
+    elif ("PHOTOSHOP" in p) or ("PS" in p) or ("PHOTOSHOP CC" in p):
+        print("Opening")
+        print("ADOBE PHOTOSHOP")
+        print(".")
+        print(".")
+        os.system("photoshop")
+  
+    elif ("telegram" in p) or ("tg" in p):
+        print("Opening")
+        print("TELEGRAM")
+        print(".")
+        print(".")
+        os.system("telegram")
+  
+    elif ("excel" in p) or ("msexcel" in p) or ("sheet" in p) or ("winexcel" in p):
+        print("Opening")
+        print("MICROSOFT EXCEL")
+        print(".")
+        print(".")
+        os.system("start excel")
+  
+    elif ("slide" in p) or ("mspowerpoint" in p) or ("ppt" in p) or ("powerpoint" in p):
+        print("Opening")
+        print("MICROSOFT POWERPOINT")
+        print(".")
+        print(".")
+        os.system("start powerpnt")
+  
+    elif ("word" in p) or ("msword" in p):
+        print("Opening")
+        print("MICROSOFT WORD")
+        print(".")
+        print(".")
+        os.system("start winword")
+  
+    # close the program
+    elif ("exit" in p) or ("quit" in p) or ("close" in p):
+        print("Exiting")
+        break
+  
+    # for invalid input
+    else:
+        print(p)
+        print("Is Invalid,Please Try Again")
+        print("is Invalid,Please try again")
+        print(".")
+        print(".")
